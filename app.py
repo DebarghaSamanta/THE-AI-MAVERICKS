@@ -37,31 +37,45 @@ def display_centered_logo(image_path, width=120):
             unsafe_allow_html=True
         )
     except FileNotFoundError:
-        st.warning("⚠️ Logo image not found. Please ensure the path is correct.")
+        st.warning("⚠ Logo image not found. Please ensure the path is correct.")
 
 # ---- BACKGROUND STYLING ----
 st.markdown("""
     <style>
-    .stApp {{
-        background: linear-gradient(135deg, #f7f9fc, #e4ebf5);
+    .stApp {
+        background: linear-gradient(135deg, #1e1e2f, #2b2b3c);
+        color: #f0f0f0;
         font-family: 'Segoe UI', sans-serif;
-    }}
-    .title-container {{
+    }
+    .title-container {
         text-align: center;
         margin-bottom: 10px;
-    }}
-    .section-card {{
-        background-color: #ffffff;
+        color: #f0f0f0;
+    }
+    .section-card {
+        background-color: #2f2f40;
         padding: 1.5rem;
         border-radius: 15px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }}
-    .footer {{
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        color: #ffffff;
+    }
+    .footer {
         text-align: center;
         font-size: 0.8rem;
-        color: #888;
+        color: #aaa;
         margin-top: 50px;
-    }}
+    }
+    .stButton>button {
+        background-color: #3c3c54;
+        color: #ffffff;
+        border: none;
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+    }
+    .stButton>button:hover {
+        background-color: #4f4f6c;
+        color: #ffffff;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -82,18 +96,22 @@ col1, col2 = st.columns(2)
 
 with col1:
     with st.container():
-        st.markdown("<div class='section-card'>", unsafe_allow_html=True)
-        st.markdown("#### 📦 Predict Supplies")
-        st.markdown("Estimate critical supplies needed for affected populations.")
+        #st.markdown("<div class='section-card'>", unsafe_allow_html=True)
+        st.markdown("""
+            #### 📦 Predict Supplies  
+            Estimate critical supplies needed for affected populations.
+        """, unsafe_allow_html=True)
         if st.button("Start Prediction", use_container_width=True):
             st.switch_page("pages/1_Supply_Prediction.py")
         st.markdown("</div>", unsafe_allow_html=True)
 
 with col2:
     with st.container():
-        st.markdown("<div class='section-card'>", unsafe_allow_html=True)
-        st.markdown("#### 🗺️ Plan Delivery Route")
-        st.markdown("Find optimal supply delivery paths based on disaster zones.")
+        #st.markdown("<div class='section-card'>", unsafe_allow_html=True)
+        st.markdown("""
+            #### 🗺 Plan Delivery Route  
+            Find optimal supply delivery paths based on disaster zones.
+        """, unsafe_allow_html=True)
         if st.button("Start Route Planning", use_container_width=True):
             st.switch_page("pages/2_Route_Planner.py")
         st.markdown("</div>", unsafe_allow_html=True)
@@ -102,42 +120,43 @@ with col2:
 st.divider()
 st.info("💡 Tip: You can also navigate using the sidebar.")
 
-# ---- FETCH DISASTER NEWS FUNCTION USING MEDIASTACK API ----
+# ---- FETCH DISASTER NEWS FUNCTION (INDIA ONLY, DISASTER TOPICS ONLY) ----
 def fetch_disaster_news(from_date, to_date, max_articles=5):
     if not MEDIASTACK_API_KEY:
-        st.error("⚠️ Mediastack API key not found. Please check your .env file.")
+        st.error("⚠ Mediastack API key not found. Please check your .env file.")
         return []
 
-    # Define Indian news sources to filter by (Examples: 'times-of-india', 'india-today', 'ndtv', 'news24', 'hindustan-times')
-    indian_sources = "times-of-india,india-today,ndtv,news24,hindustan-times"
+    # Updated keywords to cover more India-specific disaster scenarios
+    keywords = (
+        "disaster,flood,earthquake,cyclone,landslide,drought,tsunami,storm,"
+        "monsoon,deluge,uttarakhand,assam,bihar,kerala,odisha,manipur,jammu"
+    )
 
-    # Construct the Mediastack API URL with filters
     url = (
         f"http://api.mediastack.com/v1/news?"
         f"access_key={MEDIASTACK_API_KEY}&"
         f"languages=en&"
+        f"countries=in&"
         f"from={from_date}&"
         f"to={to_date}&"
         f"sort=published_desc&"
         f"limit={max_articles}&"
-        f"keywords=disaster,flood,earthquake,cyclone,landslide,drought&"
-        f"sources={indian_sources}"
+        f"keywords={keywords}"
     )
 
-    # Send request to Mediastack API
     response = requests.get(url)
-    
+
     if response.status_code == 200:
         return response.json().get("data", [])
     else:
-        st.error(f"⚠️ Failed to fetch disaster news from Mediastack. Status code: {response.status_code}")
+        st.error(f"⚠ Failed to fetch disaster news from Mediastack. Status code: {response.status_code}")
         return []
 
 # ---- ALERT: DISASTER NEWS ----
 st.markdown("### 🔔 Alert: Disaster News in India")
 
 today = datetime.date.today()
-one_week_ago = today - datetime.timedelta(days=7)
+one_month_ago = today - datetime.timedelta(days=30)
 
 # Today's news
 st.markdown("#### 🔴 Latest News (Today)")
@@ -150,14 +169,14 @@ else:
 
 st.divider()
 
-# Older news
-st.markdown("#### 🟡 News from the Past Week")
-older_news = fetch_disaster_news(one_week_ago, today)
+# Older news (past month)
+st.markdown("#### 🟡 News from the Past Month")
+older_news = fetch_disaster_news(one_month_ago, today)
 if older_news:
     for article in older_news:
         st.markdown(f"**[{article['title']}]({article['url']})**  \n:small_blue_diamond: {article['description']}")
 else:
-    st.info("No older disaster-related news found.")
+    st.info("No disaster-related news found in the past month.")
 
 # ---- FOOTER ----
 st.markdown("---")
