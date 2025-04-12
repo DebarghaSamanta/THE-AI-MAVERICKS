@@ -1,5 +1,6 @@
 
 ---
+
 # THE-AI-MAVERICKS  
 **AI-Driven and Blockchain-Enabled Disaster Relief: An Integrated Framework for Real-Time Route Optimization, Transparent Supply Chain Management, and Remote Connectivity**
 
@@ -17,6 +18,7 @@ This project is an AI-powered dashboard designed to assist with real-time disast
 
 - Python 3.7+
 - Google Maps API key for route planning
+- Mediastack API key for accessing real-time news and updates
 
 ## Installation
 
@@ -54,12 +56,22 @@ pip install -r requirements.txt
 - Create a `.env` file in the project root and add your Google Maps API key:
 
 ```
-GOOGLE_API_KEY=your_api_key_here
+GOOGLE_API_KEY=your_google_api_key_here
 ```
 
-Replace `your_api_key_here` with your actual Google Maps API key.
+Replace `your_google_api_key_here` with your actual Google Maps API key.
 
-### 6. Run the Application
+### 6. Set Up Mediastack API
+
+- In the same `.env` file, add your Mediastack API key:
+
+```
+MEDIASTACK_API_KEY=your_mediastack_api_key_here
+```
+
+Replace `your_mediastack_api_key_here` with your actual Mediastack API key.
+
+### 7. Run the Application
 
 ```bash
 streamlit run app.py
@@ -87,7 +99,7 @@ Disaster-Relief-AI-Dashboard/
 ├── .gitignore                ← Git ignore file
 ├── requirements.txt          ← Project dependencies
 ├── readme.md                 ← This README file
-└── .env                      ← Environment variables (add your API key here)
+└── .env                      ← Environment variables (add your API keys here)
 ```
 
 ## Usage
@@ -113,21 +125,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [Streamlit](https://streamlit.io) for the framework
 - [Google Maps API](https://developers.google.com/maps/documentation) for route planning functionality
+- [Mediastack](https://mediastack.com) for real-time news updates
 - [Pandas](https://pandas.pydata.org) and [Scikit-learn](https://scikit-learn.org) for machine learning and data processing
 
 ---
-
-### Instructions:
-
-- **Replace `your_api_key_here`** with your actual Google Maps API key in the `.env` file to enable route planning functionality.
-```
-
----
-
-### Key Points:
-
-1. **Indentation**: Ensure consistent indentation for nested sections and lists.
-2. **Special Characters**: Ensure there are no unexpected special characters in YAML-like sections (e.g., file paths, API keys).
-3. **Avoid Empty Lines in Key-Value Pairs**: Ensure there’s no space or empty line where one isn't expected.
-
-This approach should avoid the YAML parsing error. If the issue persists, I recommend using a YAML validator for checking any invisible issues. Let me know if you need further clarification!
