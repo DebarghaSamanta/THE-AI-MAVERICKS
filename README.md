@@ -1,7 +1,6 @@
 # THE-AI-MAVERICKS
 AI-Driven and Blockchain-Enabled Disaster Relief: An Integrated Framework for Real-Time Route Optimization, Transparent Supply Chain Management, and Remote Connectivity
 
-```markdown
 # Disaster Relief AI Dashboard
 
 ## Overview
@@ -106,7 +105,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Streamlit](https://streamlit.io) for the framework
 - [Google Maps API](https://developers.google.com/maps/documentation) for the route planning functionality
 - [Pandas](https://pandas.pydata.org) and [Scikit-learn](https://scikit-learn.org) for machine learning and data processing
-```
+
 
 ### Instructions:
 
