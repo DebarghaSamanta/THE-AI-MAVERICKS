@@ -1,17 +1,17 @@
-# THE-AI-MAVERICKS
-AI-Driven and Blockchain-Enabled Disaster Relief: An Integrated Framework for Real-Time Route Optimization, Transparent Supply Chain Management, and Remote Connectivity
+---
 
-# Disaster Relief AI Dashboard
+# THE-AI-MAVERICKS  
+**AI-Driven and Blockchain-Enabled Disaster Relief: An Integrated Framework for Real-Time Route Optimization, Transparent Supply Chain Management, and Remote Connectivity**
 
 ## Overview
 
-This project is an AI-powered dashboard designed to help with real-time disaster response and planning. The tool leverages machine learning models to predict supply needs (food, water, medicines, clothing) based on disaster details, and it integrates with Google Maps API for route planning and visualization.
+This project is an AI-powered dashboard designed to assist with real-time disaster response and planning. The tool leverages machine learning models to predict supply needs (such as food, water, medicines, and clothing) based on disaster details, and integrates with the Google Maps API for route planning and visualization.
 
 ## Features
 
-- **Supply Prediction**: Predicts the amount of food, water, medicine, and clothing needed during a disaster based on its severity, affected population, and more.
-- **Route Planner**: Helps plan efficient delivery routes for disaster relief supplies.
-- **Interactive User Interface**: Built with Streamlit for easy interaction and visualization.
+- **Supply Prediction**: Predicts the amount of food, water, medicine, and clothing needed during a disaster based on its severity, affected population, and other factors.
+- **Route Planner**: Helps plan efficient delivery routes for disaster relief supplies, optimized for traffic and distance using the Google Maps API.
+- **Interactive User Interface**: Built with Streamlit for easy interaction and visualization, allowing for real-time updates and decision-making.
 
 ## Prerequisites
 
@@ -20,43 +20,52 @@ This project is an AI-powered dashboard designed to help with real-time disaster
 
 ## Installation
 
-1. **Clone the Repository**:
-   
-   Open your terminal and run the following command:
-   ```bash
-   git clone https://github.com/DebarghaSamanta/THE-AI-MAVERICKS.git
-   ```
+### 1. Clone the Repository
 
-2. **Navigate to the project directory**:
-   ```bash
-   cd Disaster-Relief-AI-Dashboard
-   ```
+Open your terminal and run the following command:
 
-3. **Set up the virtual environment**:
-   - If you’re using `venv`:
-     ```bash
-     python -m venv venv
-     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-     ```
+```bash
+git clone https://github.com/DebarghaSamanta/THE-AI-MAVERICKS.git
+```
 
-4. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 2. Navigate to the Project Directory
 
-5. **Set up Google Maps API**:
-   - Create a `.env` file in the project root and add your Google Maps API key:
-     ```
-     GOOGLE_API_KEY=your_api_key_here
-     ```
-   - Replace `your_api_key_here` with your actual Google Maps API key.
+```bash
+cd Disaster-Relief-AI-Dashboard
+```
 
-6. **Run the Application**:
-   ```bash
-   streamlit run app.py
-   ```
+### 3. Set Up the Virtual Environment
 
-   This will start the dashboard on your local machine. You can view it in your browser at `http://localhost:8501`.
+- If you’re using `venv`:
+
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```
+
+### 4. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Set Up Google Maps API
+
+- Create a `.env` file in the project root and add your Google Maps API key:
+
+```
+GOOGLE_API_KEY=your_api_key_here
+```
+
+Replace `your_api_key_here` with your actual Google Maps API key.
+
+### 6. Run the Application
+
+```bash
+streamlit run app.py
+```
+
+This will start the dashboard on your local machine. You can view it in your browser at `http://localhost:8501`.
 
 ## Folder Structure
 
@@ -84,7 +93,7 @@ Disaster-Relief-AI-Dashboard/
 ## Usage
 
 - **Supply Prediction**: Navigate to the "📦 Predict Supplies" tab to enter disaster details and predict the necessary supplies.
-- **Route Planner**: Navigate to the "🗺️ Plan Delivery Route" tab to enter start and end locations, and the tool will generate an optimized route using Google Maps API.
+- **Route Planner**: Navigate to the "🗺️ Plan Delivery Route" tab to enter start and end locations, and the tool will generate an optimized route using the Google Maps API.
 
 ## Contributing
 
@@ -103,13 +112,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - [Streamlit](https://streamlit.io) for the framework
-- [Google Maps API](https://developers.google.com/maps/documentation) for the route planning functionality
+- [Google Maps API](https://developers.google.com/maps/documentation) for route planning functionality
 - [Pandas](https://pandas.pydata.org) and [Scikit-learn](https://scikit-learn.org) for machine learning and data processing
 
+---
 
 ### Instructions:
 
-
-- Replace `your_api_key_here` with your actual Google Maps API key in the `.env` file.
-
-
+- **Replace `your_api_key_here`** with your actual Google Maps API key in the `.env` file to enable route planning functionality.
+  
