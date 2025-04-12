@@ -1,0 +1,11 @@
+# Core packages
+streamlit==1.19.0
+requests==2.28.1
+pandas==1.5.3
+Pillow==9.3.0
+streamlit-lottie==0.1.0
+
+# If you're using a virtual environment, you may also need this:
+python-dotenv==0.20.0
+
+# Any other dependencies specific to your project

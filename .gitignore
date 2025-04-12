@@ -1,0 +1,30 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+env/
+
+# .env file (for environment variables, e.g., API keys)
+.env
+
+# Streamlit configuration file
+.streamlit/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and other temp files
+*.log
+*.bak
+*.swp
+
+# OS-specific files
+.DS_Store  # macOS
+Thumbs.db  # Windows
+
+# IDE files
+.vscode/
+.idea/
