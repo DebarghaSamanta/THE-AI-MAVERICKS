@@ -1,6 +1,5 @@
 
 ---
-
 # THE-AI-MAVERICKS  
 **AI-Driven and Blockchain-Enabled Disaster Relief: An Integrated Framework for Real-Time Route Optimization, Transparent Supply Chain Management, and Remote Connectivity**
 
@@ -121,4 +120,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### Instructions:
 
 - **Replace `your_api_key_here`** with your actual Google Maps API key in the `.env` file to enable route planning functionality.
-  
+```
+
+---
+
+### Key Points:
+
+1. **Indentation**: Ensure consistent indentation for nested sections and lists.
+2. **Special Characters**: Ensure there are no unexpected special characters in YAML-like sections (e.g., file paths, API keys).
+3. **Avoid Empty Lines in Key-Value Pairs**: Ensure there’s no space or empty line where one isn't expected.
+
+This approach should avoid the YAML parsing error. If the issue persists, I recommend using a YAML validator for checking any invisible issues. Let me know if you need further clarification!
