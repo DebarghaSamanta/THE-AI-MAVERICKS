@@ -3,6 +3,31 @@ import pandas as pd
 import pickle
 import time
 
+from auth_system import check_auth
+
+# Force authentication check before rendering anything
+is_authenticated = check_auth()
+
+# If not authenticated, show login message and stop the page from loading
+if not is_authenticated:
+    st.error("🔒 Authentication required! Please log in to access this page.")
+    st.info("Redirecting to login page...")
+    
+    # Optional: Add JavaScript to automatically redirect after a short delay
+    st.markdown(
+        """
+        <script>
+            setTimeout(function() {
+                window.location.href = '/';
+            }, 2000);
+        </script>
+        """,
+        unsafe_allow_html=True
+    )
+    st.stop()  # Stop rendering the rest of the page
+
+# Continue with page content only if authenticated
+# Rest of the page code goes here...
 # Page config
 st.set_page_config(page_title="Disaster Supply Predictor", layout="centered")
 
